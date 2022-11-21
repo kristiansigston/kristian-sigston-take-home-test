@@ -1,12 +1,14 @@
 /* eslint-disable max-statements */
+// import axios from "axios";
 import { add, format } from "date-fns";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../../components/button";
 import RowContainer from "../../components/row-container";
+// import { isEmpty } from "lodash";
 import {
   AccountHeadline, AccountLabel, AccountList, AccountListItem, AccountSection, InfoText, Inset
 } from "./style";
-
+import ValuationChange from "../valuation-change";
 
 const account = {
   uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
@@ -33,17 +35,53 @@ const account = {
   updateAfterDays: 30,
 };
 
-const Detail = ({}) => {
+const Detail = ({ }) => {
+  // const [account, setAccount] = useState({})
+  // console.log(account);
+
+  // if (isEmpty(account)) {
+  //   return <div>Loading</div>
+  // }
+
+  // const getAccountData = async () => {
+  //   try {
+  //     const response = await axios.get('/api/account')
+  //     console.log(response.data);
+  //     setAccount(response.data)
+  //   }
+  //   catch (e) {
+  //     console.log(e);
+  //     return {
+  //       message: e.message,
+  //     }
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   console.log('usedeffect');
+  //   getAccountData()
+
+  // }, [getAccountData])
+
   let mortgage;
   const lastUpdate = new Date(account.lastUpdate);
   if (account.associatedMortgages.length) {
     mortgage = account.associatedMortgages[0];
   }
 
+  const { originalPurchasePrice, recentValuation } = account
+  const housePriceData = {
+    recentValuationAmmount: recentValuation.amount,
+    originalPurchasePrice,
+  }
+
   return (
     <Inset>
       <AccountSection>
+        {/* Perhaps pass in the text as title */}
         <AccountLabel>Estimated Value</AccountLabel>
+        {/* This is quite busy. I would perhaps hide the logic inside a convert to a readable value function */}
+        {/* probably within the component itself */}
         <AccountHeadline>
           {new Intl.NumberFormat("en-GB", {
             style: "currency",
@@ -65,12 +103,20 @@ const Detail = ({}) => {
       <AccountSection>
         <AccountLabel>Property details</AccountLabel>
         <RowContainer>
+          {/* AccountList = textArray={[name, bankName, postcode]} />*/}
           <AccountList>
+            {/* I would pass in the text values as an array here and map over them */}
+            {/* [name, bankName, postcode].map(text => <AcountListItem><InfoText>{text}</InfoText></AcountListItem>) */}
+            {/* perhaps even just a return function */}
+            {/* const accountListItem = (text) => <AcountListItem><InfoText>{text}</InfoText></AcountListItem>}  */}
             <AccountListItem><InfoText>{account.name}</InfoText></AccountListItem>
             <AccountListItem><InfoText>{account.bankName}</InfoText></AccountListItem>
             <AccountListItem><InfoText>{account.postcode}</InfoText></AccountListItem>
           </AccountList>
         </RowContainer>
+      </AccountSection>
+      <AccountSection>
+        <ValuationChange housePriceData={housePriceData} />
       </AccountSection>
       {mortgage && (
         <AccountSection>
@@ -102,5 +148,6 @@ const Detail = ({}) => {
     </Inset>
   );
 };
+
 
 export default Detail;
