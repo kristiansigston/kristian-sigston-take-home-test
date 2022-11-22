@@ -5,7 +5,7 @@ export const ValuationData = styled.div`
   // font-size: ${(props) => props.theme.typography.m.fontSize};
   // color: ${(props) => props.theme.colors.neutral[900]};
   // margin-bottom: ${(props) => props.theme.space.s};
-  `;
+`;
 
 export const HousePrice = styled.span`
   font-size: ${(props) => props.theme.typography.m.fontSize};
@@ -35,6 +35,6 @@ export const Highlighted = styled.span`
   padding: 0 0.5em 0 0.5em;
   background: red; 
   ${({ positive }) => positive && `
-  background: #c2f7e1;
-`}
+    background: #c2f7e1;
+  `}
 `
