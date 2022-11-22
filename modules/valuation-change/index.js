@@ -1,9 +1,12 @@
 // extract to helper functions and then export for tests.
-
+import PropTypes from 'prop-types';
 
 import { ValuationData, HousePrice, ValuationContainer, PurchaseValues, PurchasePercent, Highlighted } from './style'
 import formatCurrency from '../../components/helpers/currency'
 import { InfoText } from '../property-details/style'
+
+
+/// Extract all these into helper folders  //////////////////////////////////////////////////////////////
 
 // use intl to get local month names
 const ukMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -43,6 +46,9 @@ const generatePurchasePriceString = (purchaseDate, originalPurchasePrice) => {
   return <InfoText>Purchased for <HousePrice>{formatCurrency(originalPurchasePrice)}</HousePrice> in {month} {year}</InfoText>
 }
 
+/// End of extract all these //////////////////////////////////////////////////////////////
+
+
 const ValuationChange = ({ housePriceData }) => {
   const { originalPurchasePrice, recentValuationAmount, originalPurchasePriceDate } = housePriceData
   const { sincePurchasePercentage, annualAppreciation } = calculatePriceDetails(originalPurchasePrice, recentValuationAmount, originalPurchasePriceDate)
@@ -77,4 +83,13 @@ const ValuationChange = ({ housePriceData }) => {
   </ValuationData >
 }
 
+ValuationChange.propTypes = {
+  housePriceData: PropTypes.shape({
+    originalPurchasePrice: PropTypes.number,
+    recentValuationAmount: PropTypes.number,
+    originalPurchasePriceDate: PropTypes.string
+  })
+}
+
 export default ValuationChange
+
