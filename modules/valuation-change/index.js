@@ -1,7 +1,7 @@
 // extract to helper functions and then export for tests.
 
 
-import { ValuationData, HousePrice, ValuationContainer, PurchaseText, PurchaseValues, PurchasePercent, Highlighted } from './style'
+import { ValuationData, HousePrice, ValuationContainer, PurchaseValues, PurchasePercent, Highlighted } from './style'
 import formatCurrency from '../../components/helpers/currency'
 import { InfoText } from '../property-details/style'
 

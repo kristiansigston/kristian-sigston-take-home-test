@@ -15,21 +15,14 @@ export const HousePrice = styled.span`
 `
 
 export const ValuationContainer = styled.div`
-  // line-height: 1.6;
-  // font-size: ${(props) => props.theme.typography.m.fontSize};
   display: flex;
   justify-content: space-between;
 `
 
-export const PurchaseValues = styled.p`
+export const PurchaseValues = styled.div`
   display: flex;
-  sflex-direction: row;
+  flex-direction: row;
 `
-
-export const PurchaseText = styled.p`
-  line-height: 1.6;
-  font-size: ${(props) => props.theme.typography.m.fontSize};
-  `
 
 export const PurchasePercent = styled.p`
   line-height: 1.6;
@@ -37,7 +30,7 @@ export const PurchasePercent = styled.p`
   padding-left: 5px
 `
 
-export const Highlighted = styled.p`
+export const Highlighted = styled.span`
   border-radius: 5em;
   padding: 0 0.5em 0 0.5em;
   background: red; 

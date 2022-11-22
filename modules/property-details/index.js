@@ -1,68 +1,66 @@
 /* eslint-disable max-statements */
-// import axios from "axios";
+import axios from "axios";
 import { add, format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import { Button } from "../../components/button";
 import RowContainer from "../../components/row-container";
-// import { isEmpty } from "lodash";
+import { isEmpty } from "lodash";
 import {
   AccountHeadline, AccountLabel, AccountList, AccountListItem, AccountSection, InfoText, Inset
 } from "./style";
 import ValuationChange from "../valuation-change";
 import currencyFormat from "../../components/helpers/currency";
 
-const account = {
-  uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
-  deleted: false,
-  dateCreated: "2020-12-03T08:55:33.421Z",
-  currency: "GBP",
-  name: "15 Temple Way",
-  bankName: "Residential",
-  type: "properties",
-  subType: "residential",
-  originalPurchasePrice: 250000,
-  originalPurchasePriceDate: "2017-09-03",
-  recentValuation: { amount: 310000, status: "good" },
-  associatedMortgages: [
-    {
-      name: "HSBC Repayment Mortgage",
-      uid: "fb463121-b51a-490d-9f19-d2ea76f05e25",
-      currentBalance: -175000,
-    },
-  ],
-  canBeManaged: false,
-  postcode: "BS1 2AA",
-  lastUpdate: "2020-12-01T08:55:33.421Z",
-  updateAfterDays: 30,
-};
+// const account = {
+//   uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
+//   deleted: false,
+//   dateCreated: "2020-12-03T08:55:33.421Z",
+//   currency: "GBP",
+//   name: "15 Temple Way",
+//   bankName: "Residential",
+//   type: "properties",
+//   subType: "residential",
+//   originalPurchasePrice: 250000,
+//   originalPurchasePriceDate: "2017-09-03",
+//   recentValuation: { amount: 310000, status: "good" },
+//   associatedMortgages: [
+//     {
+//       name: "HSBC Repayment Mortgage",
+//       uid: "fb463121-b51a-490d-9f19-d2ea76f05e25",
+//       currentBalance: -175000,
+//     },
+//   ],
+//   canBeManaged: false,
+//   postcode: "BS1 2AA",
+//   lastUpdate: "2020-12-01T08:55:33.421Z",
+//   updateAfterDays: 30,
+// };
 
 const Detail = ({ }) => {
-  // const [account, setAccount] = useState({})
-  // console.log(account);
+  const [account, setAccount] = useState({})
 
-  // if (isEmpty(account)) {
-  //   return <div>Loading</div>
-  // }
+  const getAccountData = async () => {
+    try {
+      const response = await axios.get('/api/account')
+      setAccount(response.data.account)
+    }
+    catch (e) {
+      // add logger services
+      console.error(e);
+      return {
+        message: e.message,
+      }
+    }
+  }
 
-  // const getAccountData = async () => {
-  //   try {
-  //     const response = await axios.get('/api/account')
-  //     console.log(response.data);
-  //     setAccount(response.data)
-  //   }
-  //   catch (e) {
-  //     console.log(e);
-  //     return {
-  //       message: e.message,
-  //     }
-  //   }
-  // }
+  useEffect(() => {
+    getAccountData()
+  }, [])
 
-  // useEffect(() => {
-  //   console.log('usedeffect');
-  //   getAccountData()
-
-  // }, [getAccountData])
+  if (isEmpty(account)) {
+    // Make a nicer loading screen
+    return <div>Loading</div>
+  }
 
   let mortgage;
   const lastUpdate = new Date(account.lastUpdate);
