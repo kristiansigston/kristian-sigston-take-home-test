@@ -85,9 +85,9 @@ const ValuationChange = ({ housePriceData }) => {
 
 ValuationChange.propTypes = {
   housePriceData: PropTypes.shape({
-    originalPurchasePrice: PropTypes.number,
-    recentValuationAmount: PropTypes.number,
-    originalPurchasePriceDate: PropTypes.string
+    originalPurchasePrice: PropTypes.number.isRequired,
+    recentValuationAmount: PropTypes.number.isRequired,
+    originalPurchasePriceDate: PropTypes.string.isRequired
   })
 }
 
