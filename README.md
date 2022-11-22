@@ -120,3 +120,11 @@ A currency and language conversion function would be good but probably you alrea
 
 I have left in the commits from all stages of my work but if this was an actual final commit I would
 sqaush them down to fewer commit to better represent the important steps.
+
+An extra item to do is probably to specify in the package.json the node version to use with 
+to make sure all colleagues are using the most similar environments possible (if not premade docker containers)
+For example
+  "engines" : { 
+    "npm" : ">=8.0.0 <9.0.0",
+    "node" : ">=16.0.0 <17.0.0"
+  }
