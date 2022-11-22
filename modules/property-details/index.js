@@ -9,7 +9,7 @@ import {
   AccountHeadline, AccountLabel, AccountList, AccountListItem, AccountSection, InfoText, Inset
 } from "./style";
 import ValuationChange from "../valuation-change";
-import currencyFormat from "../../components/helpers/currency";
+import currencyFormat from "../../components/helpers/format-currency";
 
 // const account = {
 //   uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
