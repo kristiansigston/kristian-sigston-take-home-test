@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 import { ValuationData, HousePrice, ValuationContainer, PurchaseValues, PurchasePercent, Highlighted } from './style'
-import formatCurrency from '../../components/helpers/currency'
+import formatCurrency from '../../components/helpers/format-currency'
 import { InfoText } from '../property-details/style'
 
 

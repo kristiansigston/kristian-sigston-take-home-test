@@ -88,33 +88,30 @@ To learn more about Next.js, take a look at the following resources:
 
 ## Canidiate Notes
 
-### Refactors
-* Move some of the items to their own components
-* Create new components pasing in the text/title as a property
-* Get intl month names
-* investigate date comparison libraries for existing helper functions
-* investigate changing between currencies
+to run tests run the command "npm test"
 
 ### Libraries/Testing
-Add tests
+Add further tests
 Using jest and react-testing-library
 
-Add ESLint/Prettier for code auto format to local code guidelines
-
+Add ESLint/Prettier for code auto format to local code styles
 Add typescript for help with autocomplete/type checking
 
 ### With extra time
+There are a number of things I would like to add/refactor.
+* Get intl month names
+* investigate date comparison libraries for existing helper functions
+* investigate changing between currencies
+* break down some of the larger more components and try to reduce the complexity of the main component
+* I would achieve this by removing logic from within the component. I appreciate I have added logic in to the components too... with 
+* limited time I did not get a chance to get the testing phase. Not even the refactor phase.
+* I would add in the flex box using a media query (with the provided break points) to make the values responsive.
+* Work out why the line-height in the Valuation is different
+* Add Husky or other pre/post commit hook to auto run tests and linting checks before commits
 
-There are a number of things I would add/refactor.
-I would add more components and try to reduce the complexity of the main component
-I would achieve this by removing logic from within the component. I appreciate I have added logic in to the components too... with 
-limited time I did not get a chance to get the testing phase. Not even the refactor phase.
-I would add in the flex box using a media query (with the provided break points) to make the values responsive.
-Work out why the line-height in the Valuation is different
-Add Husky or other pre/post commit hook to auto run tests and linitng checks before commits
-
-Add API requests directly in the component with getServerSideProps() (nextjs)
-Add a nicer loading screen while waiting for API requests
+* Add API requests directly in the component with getServerSideProps() (nextjs)
+* Add a nicer loading screen while waiting for API requests
+* Investigate and upgrade all the packages with exploitable vulnerabilities 
 
 ### UX UI Changes.
 I can see very little of the app to consider UI/UX changes without seeing the 
