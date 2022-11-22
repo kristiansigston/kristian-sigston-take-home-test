@@ -117,3 +117,6 @@ I can see very little of the app to consider UI/UX changes without seeing the
 rest of the app and how it would impact other parts of the product and 
 hence overall desgin and feel.
 A currency and language conversion function would be good but probably you already have that.
+
+I have left in the commits from all stages of my work but if this was an actual final commit I would
+sqaush them down to fewer commit to better represent the important steps.
