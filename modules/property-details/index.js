@@ -9,6 +9,7 @@ import {
   AccountHeadline, AccountLabel, AccountList, AccountListItem, AccountSection, InfoText, Inset
 } from "./style";
 import ValuationChange from "../valuation-change";
+import currencyFormat from "../../components/helpers/currency";
 
 const account = {
   uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
@@ -69,10 +70,11 @@ const Detail = ({ }) => {
     mortgage = account.associatedMortgages[0];
   }
 
-  const { originalPurchasePrice, recentValuation } = account
+  const { originalPurchasePrice, recentValuation, originalPurchasePriceDate } = account
   const housePriceData = {
-    recentValuationAmmount: recentValuation.amount,
+    recentValuationAmount: recentValuation.amount,
     originalPurchasePrice,
+    originalPurchasePriceDate
   }
 
   return (
@@ -83,10 +85,7 @@ const Detail = ({ }) => {
         {/* This is quite busy. I would perhaps hide the logic inside a convert to a readable value function */}
         {/* probably within the component itself */}
         <AccountHeadline>
-          {new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-          }).format(account.recentValuation.amount)}
+          {currencyFormat(account.recentValuation.amount)}
         </AccountHeadline>
         <AccountList>
           <AccountListItem><InfoText>
@@ -116,6 +115,7 @@ const Detail = ({ }) => {
         </RowContainer>
       </AccountSection>
       <AccountSection>
+        <AccountLabel>Valuation Changes</AccountLabel>
         <ValuationChange housePriceData={housePriceData} />
       </AccountSection>
       {mortgage && (

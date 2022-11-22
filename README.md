@@ -88,6 +88,23 @@ To learn more about Next.js, take a look at the following resources:
 
 ## Canidiate Notes
 
-### Refadctors
-Move some of the items to their own components
-Create new components pasing in the text/title as a property
+### Refactors
+* Move some of the items to their own components
+* Create new components pasing in the text/title as a property
+* Get intl month names
+
+### Libraries/Testing
+Add tests
+Using jest and react-testing-library
+
+Add ESLint/ Prettier
+
+Add typescript for help with autocomplete/type checking
+
+### With extra time
+
+There are a number of things I would refactor.
+I would add more components and try to reduce the complexity of the main component
+I would achieve this by removing logic from within the component. I appreciate I have done this also but with 
+limited time I did not get a chance to get the testing phase let alone the refactor phase.
+I would add in the flex box using a media query to make the values responsive.

@@ -10,6 +10,7 @@ export const AccountLabel = styled.div`
   line-height: ${(props) => props.theme.typography.xl.lineHeight};
   color: ${(props) => props.theme.colors.neutral[900]};
   margin-bottom: ${(props) => props.theme.space.s};
+  font-weight: bold;
 `;
 
 export const AccountHeadline = styled.h2`
