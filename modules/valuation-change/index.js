@@ -1,10 +1,15 @@
 // extract to helper functions and then export for tests.
 import PropTypes from 'prop-types';
 
-import { ValuationData, HousePrice, ValuationContainer, PurchaseValues, PurchasePercent, Highlighted } from './style'
+import {
+  HousePrice,
+  PurchaseValues,
+  PurchasePercent,
+  Highlighted,
+  RowFlexContainer
+} from './style'
 import formatCurrency from '../../components/helpers/format-currency'
-import { InfoText } from '../property-details/style'
-
+import { AccountListItem, InfoText } from '../property-details/style'
 
 /// Extract all these into helper folders  //////////////////////////////////////////////////////////////
 
@@ -53,34 +58,49 @@ const ValuationChange = ({ housePriceData }) => {
   const { originalPurchasePrice, recentValuationAmount, originalPurchasePriceDate } = housePriceData
   const { sincePurchasePercentage, annualAppreciation } = calculatePriceDetails(originalPurchasePrice, recentValuationAmount, originalPurchasePriceDate)
 
-  return <ValuationData>
-    {generatePurchasePriceString(originalPurchasePriceDate, originalPurchasePrice)}
-    <ValuationContainer>
+  return <>
+    <AccountListItem>
+
       <InfoText>
-        Since Purchase
+        {generatePurchasePriceString(originalPurchasePriceDate, originalPurchasePrice)}
       </InfoText>
-      <Highlighted positive={originalPurchasePrice < recentValuationAmount}>
-        <PurchaseValues>
-          <HousePrice>
-            {formatCurrency(recentValuationAmount)}
-          </HousePrice>
-          <PurchasePercent>
-            ({sincePurchasePercentage})%
-          </PurchasePercent>
-        </PurchaseValues>
-      </Highlighted>
-    </ValuationContainer>
-    <ValuationContainer>
-      <InfoText>
-        Annual Appreciation
-      </InfoText>
-      <Highlighted positive={originalPurchasePrice < recentValuationAmount}>
-        <PurchaseValues>
-          {annualAppreciation}%
-        </PurchaseValues>
-      </Highlighted>
-    </ValuationContainer>
-  </ValuationData >
+    </AccountListItem>
+    <AccountListItem>
+      <RowFlexContainer>
+        <InfoText>
+          Since Purchase
+        </InfoText>
+        <Highlighted positive={originalPurchasePrice < recentValuationAmount}>
+          <PurchaseValues>
+            <HousePrice>
+              <InfoText>
+                {formatCurrency(recentValuationAmount)}
+              </InfoText>
+            </HousePrice>
+            <PurchasePercent>
+              <InfoText>
+                ({sincePurchasePercentage}%)
+              </InfoText>
+            </PurchasePercent>
+          </PurchaseValues>
+        </Highlighted>
+      </RowFlexContainer>
+    </AccountListItem>
+    <AccountListItem>
+      <RowFlexContainer>
+        <InfoText>
+          Annual Appreciation
+        </InfoText>
+        <Highlighted positive={originalPurchasePrice < recentValuationAmount}>
+          <InfoText>
+            <PurchaseValues>
+              {annualAppreciation}%
+            </PurchaseValues>
+          </InfoText>
+        </Highlighted>
+      </RowFlexContainer>
+    </AccountListItem>
+  </>
 }
 
 ValuationChange.propTypes = {
