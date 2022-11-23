@@ -118,8 +118,7 @@ rest of the app and how it would impact other parts of the product and
 hence overall desgin and feel.
 A currency and language conversion function would be good but probably you already have that.
 
-I have left in the commits from all stages of my work but if this was an actual final commit I would
-sqaush them down to fewer commit to better represent the important steps.
+I have left in the commits from all stages of my work but if this was an actual final commit I would sqaush them down to fewer commits to better represent the important steps.
 
 An extra item to do is probably to specify in the package.json the node version to use with 
 to make sure all colleagues are using the most similar environments possible (if not premade docker containers)
@@ -128,3 +127,13 @@ For example
     "npm" : ">=8.0.0 <9.0.0",
     "node" : ">=16.0.0 <17.0.0"
   }
+
+
+### Post Submission Fixes
+I missed the AccountList Wrappers.
+This caused to misunderstand why I was getting a difference
+This has now been fixed.
+Added in the responsivitiy as per the spec.
+Put the % sign in the bracket for the percentage change
+
+The branch that I will PR will be called fix/ks-update-pr

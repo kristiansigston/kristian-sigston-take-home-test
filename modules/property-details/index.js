@@ -114,7 +114,9 @@ const Detail = ({ }) => {
       </AccountSection>
       <AccountSection>
         <AccountLabel>Valuation Changes</AccountLabel>
-        <ValuationChange housePriceData={housePriceData} />
+        <AccountList>
+          <ValuationChange housePriceData={housePriceData} />
+        </AccountList>
       </AccountSection>
       {mortgage && (
         <AccountSection>
